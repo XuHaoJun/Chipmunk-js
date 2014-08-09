@@ -1764,6 +1764,12 @@ Body.prototype.resetForces = function()
 	this.t = 0;
 };
 
+Body.prototype.setForce = function(force)
+{
+	this.activate();
+	this.f = vadd(this.f, force);
+};
+
 Body.prototype.applyForce = function(force, r)
 {
 	this.activate();
@@ -2998,7 +3004,7 @@ var unthreadHelper = function(arb, body, prev, next)
 		} else {
 			prev.thread_b_next = next;
 		}
-	} else {
+	} else if(body.arbiterList === arb){
 		body.arbiterList = next;
 	}
 	
