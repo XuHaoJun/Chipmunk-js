@@ -1767,7 +1767,7 @@ Body.prototype.resetForces = function()
 Body.prototype.setForce = function(force)
 {
 	this.activate();
-	this.f = vadd(this.f, force);
+	this.f = force;
 };
 
 Body.prototype.applyForce = function(force, r)
